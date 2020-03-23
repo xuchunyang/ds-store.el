@@ -1,4 +1,4 @@
-;;; ds-store.el --- Reading and Writing the macOS Finder's .DS_Store files  -*- lexical-binding: t; -*-
+;;; ds-store.el --- Reading the macOS Finder's .DS_Store files  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Xu Chunyang
 
@@ -23,7 +23,7 @@
 
 ;;; Commentary:
 
-;; This package is a library for reading and writing .DS_Store files
+;; This package is a library for reading .DS_Store files
 ;; https://en.wikipedia.org/wiki/.DS_Store
 
 ;;; Code:
@@ -111,7 +111,9 @@
     (cl-assert (= (point) new-point))))
 
 (defun ds-store-read-file (file &optional verbose)
-  "Read .DS_Store FILE and return a list of records."
+  "Read .DS_Store FILE and return a list of records.
+Optional argument VERBOSE indicates that we should print debug
+message."
   (with-temp-buffer
     (set-buffer-multibyte nil)
     (insert-file-contents-literally file)
