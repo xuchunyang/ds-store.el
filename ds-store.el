@@ -54,19 +54,6 @@
   "Convert UTF-16 BYTES to string."
   (decode-coding-string bytes 'utf-16))
 
-(defun ds-store-string-to-bytes (string)
-  "Convert STRING to UTF-16 bytes."
-  (encode-coding-string string 'utf-16be))
-
-(defun ds-store-mac-path-less-p (a b)
-  "Return non-nil if A is less than B in alphabetic order.
-Case is insignificant, but ties can be determined by case."
-  (let ((as (ds-store-bytes-to-string a))
-        (bs (ds-store-bytes-to-string b)))
-    (or (string< (downcase as) (downcase bs))
-        (and (string= (downcase as) (downcase bs))
-             (string< as bs)))))
-
 (define-error 'ds-store-error "Ds-Store error" 'error)
 (define-error 'ds-store-end-of-file "End of file while parsing Ds-Store"
   '(end-of-file ds-store-error))
