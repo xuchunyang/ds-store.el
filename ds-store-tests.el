@@ -23,7 +23,11 @@
 
 ;;; Code:
 
+(require 'ds-store)
+(require 'ert)
 
+(ert-deftest ds-store-read-file ()
+  (should (ds-store-read-file "QQMusic_DS_Store")))
 
 (provide 'ds-store-tests)
 ;;; ds-store-tests.el ends here
